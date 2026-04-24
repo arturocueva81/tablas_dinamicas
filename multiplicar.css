@@ -1,7 +1,7 @@
 :root {
     --bg-dark: #0d1117;
-    --card-bg: #161b22;
-    --accent-green: #3DDC84; /* Verde oficial Android */
+    --card-bg: rgba(22, 27, 34, 0.95); /* Un poco de transparencia para el fondo */
+    --accent-green: #3DDC84;
     --accent-glow: rgba(61, 220, 132, 0.3);
     --border: #30363d;
     --text-main: #c9d1d9;
@@ -16,6 +16,13 @@
 
 body {
     background-color: var(--bg-dark);
+    background-image: 
+        linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)), 
+        url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
     color: var(--text-main);
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     display: flex;
@@ -38,8 +45,10 @@ header { margin-bottom: 2.5rem; }
     letter-spacing: 2px;
     cursor: pointer;
     border-radius: 4px;
-    transition: all 0.3s ease;
-    animation: glow-green 2s infinite alternate;
+    position: relative;
+    transition: all 0.2s ease;
+    animation: glow-soft 2s infinite alternate;
+    outline: none;
 }
 
 @keyframes glow-green {
@@ -48,9 +57,11 @@ header { margin-bottom: 2.5rem; }
 }
 
 .btn-probar:hover {
-    background: var(--accent-green);
+   background: var(--accent-green);
     color: var(--bg-dark);
     transform: scale(1.05);
+    /* Activamos el pulso expansivo */
+    animation: pulse-border 1.5s infinite;
 }
 
 /* Contenedor Principal */
@@ -58,10 +69,11 @@ header { margin-bottom: 2.5rem; }
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 2rem;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    padding: 2.5rem;
+    width: 95%;
+    max-width: 600px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px); /* Aumentamos el desenfoque para estilo moderno */
     position: relative;
     overflow: hidden;
 }
@@ -188,4 +200,78 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* Estilos de Ayuda y UX */
+.ayuda-sistema {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed var(--border);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.ayuda-sistema p {
+    color: var(--accent-green);
+    margin-bottom: 5px;
+}
+
+.ayuda-sistema ol {
+    margin-left: 20px;
+    color: var(--text-main);
+}
+
+#mensajeAyuda {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: #8b949e;
+    font-style: italic;
+}
+
+.espera-datos {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--border);
+}
+
+.espera-datos i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Mejorar el botón para que parezca más "clicable" */
+.btn-probar::before {
+    content: "⚡ ";
+}
+
+/* Efecto al hacer clic (Active) */
+.btn-probar:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 30px var(--accent-green);
+}
+
+/* --- Animaciones --- */
+
+/* 1. Brillo constante para que el usuario sepa que es interactivo */
+@keyframes glow-soft {
+    from { box-shadow: 0 0 5px rgba(61, 220, 132, 0.2); }
+    to { box-shadow: 0 0 15px rgba(61, 220, 132, 0.5); }
+}
+
+/* 2. El Pulso que resalta al interactuar */
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.7);
+    }
+    70% {
+        /* La sombra se expande y se desvanece */
+        box-shadow: 0 0 0 15px rgba(61, 220, 132, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(61, 220, 132, 0);
+    }
 }

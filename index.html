@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Multiplier System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="multiplicar.css">
+</head>
+<body>
+
+    <header>
+        <button class="btn-probar" onclick="generarTablas()">GENERAR TABLA</button>
+    </header>
+
+    <main class="container">
+        <h1>SISTEMA DE CÁLCULO DINÁMICO</h1>
+
+        <div class="ayuda-sistema">
+            <p><i class="fas fa-info-circle"></i> <strong>Instrucciones:</strong></p>
+            <ol>
+                <li>Ingresa un número en el campo de abajo.</li>
+                <li>Presiona el botón superior para procesar.</li>
+            </ol>
+        </div>
+
+        <div class="input-group">
+            <label for="numTabla">NÚMERO A PROCESAR:</label>
+            <input type="number" id="numTabla" placeholder="ej: 7" min="1">
+            <small id="mensajeAyuda">Introduce valores entre 1 y 999</small>
+        </div>
+
+        <div class="tabla" id="contenedorTabla">
+            <div class="espera-datos">
+                <i class="fas fa-microchip"></i>
+                <p>Esperando entrada de datos...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-box">
+            <i class="fab fa-android android-icon"></i>
+            <span>Powered by <strong>Android</strong> | Arturo Cueva</span>
+        </div>
+    </footer>
+
+    <script src="multiplicar.js"></script>
+</body>
+</html>
