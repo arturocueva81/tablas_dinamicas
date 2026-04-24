@@ -9,24 +9,28 @@
 </head>
 <body>
 
-    <header>
-        <button class="btn-probar" onclick="generarTablas()">GENERAR TABLA</button>
-    </header>
-
     <main class="container">
         <h1>SISTEMA DE CÁLCULO DINÁMICO</h1>
 
-        <div class="ayuda-sistema">
-            <p><i class="fas fa-info-circle"></i> <strong>Instrucciones:</strong></p>
-            <ol>
-                <li>Ingresa un número en el campo de abajo.</li>
-                <li>Presiona el botón superior para procesar.</li>
-            </ol>
+        <div class="instrucciones-wrapper">
+            <div class="ayuda-sistema">
+                <p><i class="fas fa-info-circle"></i> <strong>Instrucciones:</strong></p>
+                <ol>
+                    <li>Ingresa un número abajo y presiona el boton "GENERAR".</li>
+                    <li>Pulsa "RESET" para limpiar el sistema.</li>
+                </ol>
+            </div>
+            
+            <div class="boton-accion-principal">
+                <button class="btn-probar" onclick="generarTablas()">Generar</button>
+                <button class="btn-reiniciar" onclick="reiniciarSistema()">R e s e t</button>
+            </div>
         </div>
 
         <div class="input-group">
-            <label for="numTabla">NÚMERO A PROCESAR:</label>
-            <input type="number" id="numTabla" placeholder="ej: 7" min="1">
+            <div class="controles-superiores">
+                <input type="number" id="numTabla" placeholder="Ej: 5" min="1">
+            </div>
             <small id="mensajeAyuda">Introduce valores entre 1 y 999</small>
         </div>
 

@@ -7,13 +7,12 @@ function generarTablas() {
         contenedor.innerHTML = `
             <div class="espera-datos" style="color: #ff7b72;">
                 <i class="fas fa-exclamation-triangle"></i>
-                <p>ERROR: Por favor, ingresa un número válido primero.</p>
+                <p>ERROR: Por favor, ingresa un número válido.</p>
             </div>`;
         return;
     }
 
     let contenido = "";
-
     for (let i = 1; i <= 10; i++) {
         contenido += `
             <div class="fila">
@@ -23,4 +22,20 @@ function generarTablas() {
             </div>`;
     }
     contenedor.innerHTML = contenido;
+}
+
+// Nueva función de reinicio
+function reiniciarSistema() {
+    // 1. Limpiar el cuadro de texto
+    document.getElementById("numTabla").value = "";
+    
+    // 2. Restaurar el mensaje inicial en el contenedor
+    let contenedor = document.getElementById("contenedorTabla");
+    contenedor.innerHTML = `
+        <div class="espera-datos">
+            <i class="fas fa-microchip"></i>
+            <p>Sistema reiniciado. Esperando datos...</p>
+        </div>`;
+    
+    console.log("Sistema Android: Memoria volcada y reiniciada.");
 }
