@@ -1,7 +1,9 @@
 function generarTablas() {
+
     let contenedor = document.getElementById("contenedorTabla");
+    let inputUsuario = document.getElementById("numTabla");
+    let numeroTabla = parseInt(inputUsuario.value) || 0; 
     let contenido = "";
-    let numeroTabla = 5; 
 
     for (let i = 1; i <= 10; i++) {
         let resultado = numeroTabla * i;
@@ -13,4 +15,5 @@ function generarTablas() {
             </div>`;
     }
     contenedor.innerHTML = contenido;
+    console.log("Tabla generada exitosamente para el valor: " + numeroTabla);
 }
