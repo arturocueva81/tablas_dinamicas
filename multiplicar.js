@@ -1,5 +1,16 @@
 function generarTablas() {
     let contenedor = document.getElementById("contenedorTabla");
-    contenedor.innerHTML = "<h1>PROBANDO</h1>";
-    console.log("Sistema Android: Contenido actualizado correctamente.");
+    let contenido = "";
+    let numeroTabla = 5; 
+
+    for (let i = 1; i <= 10; i++) {
+        let resultado = numeroTabla * i;
+        contenido += `
+            <div class="fila">
+                <span>${numeroTabla} x ${i}</span> 
+                <span>=</span> 
+                <strong>${resultado}</strong>
+            </div>`;
+    }
+    contenedor.innerHTML = contenido;
 }
